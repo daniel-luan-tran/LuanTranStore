@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranMarket\\LuanTranStore.csproj": {}
+    "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranStore\\LuanTranStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranMarket\\LuanTranStore.csproj": {
+    "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranStore\\LuanTranStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranMarket\\LuanTranStore.csproj",
+        "projectUniqueName": "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranStore\\LuanTranStore.csproj",
         "projectName": "LuanTranStore",
-        "projectPath": "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranMarket\\LuanTranStore.csproj",
+        "projectPath": "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranStore\\LuanTranStore.csproj",
         "packagesPath": "C:\\Users\\UserDLT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranMarket\\obj\\",
+        "outputPath": "C:\\Users\\UserDLT\\OneDrive\\KHTN\\Nhap_Mon_Lap_Trinh\\c-sharp-exercise\\LuanTranStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\UserDLT\\AppData\\Roaming\\NuGet\\NuGet.Config",
