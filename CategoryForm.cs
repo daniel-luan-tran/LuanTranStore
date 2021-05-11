@@ -23,7 +23,7 @@ namespace LuanTranStore
             try
             {
                 Con.Open();
-                string query = "insert into CategoryTbl values(" + CatIdTb.Text + ",'" + CatNameTb.Text + "','" + CatDescTb.Text + "')";
+                string query = "insert into CategoryTbl values('" + CatIdTb.Text + "','" + CatNameTb.Text + "','" + CatDescTb.Text + "')";
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Category Added Successfully");
@@ -34,7 +34,6 @@ namespace LuanTranStore
                 MessageBox.Show(ex.Message);
             }
         }
-        private BindingSource bindingSource1 = new BindingSource();
         private void populate()
         {
             Con.Open();
@@ -53,9 +52,34 @@ namespace LuanTranStore
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            CatIdTb.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            CatNameTb.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            CatDescTb.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            CatIdTb.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            CatNameTb.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            CatDescTb.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CatIdTb.Text == "")
+                {
+                    MessageBox.Show("Select the category to delete");
+                }
+                else
+                {
+                    Con.Open();
+                    string query = "delete from CategoryTbl where Catid = " + CatIdTb.Text + "";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Category Deleted Successfully");
+                    Con.Close();
+                    populate();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
