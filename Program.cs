@@ -17,7 +17,7 @@ namespace LuanTranStore
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProductForm());
+            Application.Run(new CategoryForm());
         }
     }
 }
