@@ -23,11 +23,12 @@ namespace LuanTranStore
             try
             {
                 Con.Open();
-                string query = "insert into CategoryTbl values('" + CatIdTb.Text + "','" + CatNameTb.Text + "','" + CatDescTb.Text + "')";
+                string query = "insert into CategoryTbl values(" + CatIdTb.Text + " , '" + CatNameTb.Text + "' , '" + CatDescTb.Text + "')";
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Category Added Successfully");
                 Con.Close();
+                populate();
             }
             catch (Exception ex)
             {
@@ -52,6 +53,9 @@ namespace LuanTranStore
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            dataGridView1.AutoResizeColumns();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             CatIdTb.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             CatNameTb.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             CatDescTb.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
@@ -72,6 +76,31 @@ namespace LuanTranStore
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Category Deleted Successfully");
+                    Con.Close();
+                    populate();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(CatIdTb.Text=="" || CatNameTb.Text=="" || CatDescTb.Text=="")
+                {
+                    MessageBox.Show("Missing Information");
+                }
+                else
+                {
+                    Con.Open();
+                    string query = "update CategoryTbl set CatName= '" + CatNameTb.Text + "' , CatDesc = '" + CatDescTb.Text + "' where Catid= " + CatIdTb.Text + "";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Category Successfully Updated");
                     Con.Close();
                     populate();
                 }
