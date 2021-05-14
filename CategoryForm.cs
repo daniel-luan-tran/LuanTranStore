@@ -18,6 +18,7 @@ namespace LuanTranStore
             InitializeComponent();
         }
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\UserDLT\Documents\smarketdb.mdf;Integrated Security=True;Connect Timeout=30");
+        //Add Category
         private void button4_Click(object sender, EventArgs e)
         {
             try
@@ -35,6 +36,7 @@ namespace LuanTranStore
                 MessageBox.Show(ex.Message);
             }
         }
+        //Data Grid View
         private void populate()
         {
             Con.Open();
@@ -50,7 +52,7 @@ namespace LuanTranStore
         {
             populate();
         }
-
+        //Data Grid View
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.AutoResizeColumns();
@@ -60,7 +62,7 @@ namespace LuanTranStore
             CatNameTb.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             CatDescTb.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
         }
-
+        //Delete Category
         private void button6_Click(object sender, EventArgs e)
         {
             try
@@ -85,7 +87,7 @@ namespace LuanTranStore
                 MessageBox.Show(ex.Message);
             }
         }
-
+        //Edit Category
         private void button5_Click(object sender, EventArgs e)
         {
             try
@@ -109,6 +111,13 @@ namespace LuanTranStore
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProductForm prod = new ProductForm();
+            prod.Show();
+            this.Hide();
         }
     }
 }
