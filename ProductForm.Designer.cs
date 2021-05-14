@@ -29,23 +29,24 @@ namespace LuanTranStore
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CatCb = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ProdPrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ProdQty = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Prodname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Prodid = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,56 +60,39 @@ namespace LuanTranStore
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dataGridView2);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.CatCb);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.ProdPrice);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.ProdQty);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.Prodname);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.Prodid);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(130, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(739, 363);
+            this.panel1.Size = new System.Drawing.Size(739, 405);
             this.panel1.TabIndex = 0;
             // 
-            // button7
+            // label7
             // 
-            this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button7.Location = new System.Drawing.Point(591, 66);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 29);
-            this.button7.TabIndex = 28;
-            this.button7.Text = "Refresh";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "ADMIN",
-            "SELLER"});
-            this.comboBox2.Location = new System.Drawing.Point(393, 66);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(192, 29);
-            this.comboBox2.TabIndex = 27;
-            this.comboBox2.Text = "Select Category";
+            this.label7.AutoSize = true;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(448, 350);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(177, 36);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Click on the underline word\r\nin the cell to select!!!\r\n";
             // 
             // dataGridView2
             // 
@@ -122,13 +106,31 @@ namespace LuanTranStore
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(324, 110);
+            this.dataGridView1.Location = new System.Drawing.Point(324, 63);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(402, 237);
+            this.dataGridView1.Size = new System.Drawing.Size(402, 284);
             this.dataGridView1.TabIndex = 25;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // button6
             // 
@@ -143,6 +145,7 @@ namespace LuanTranStore
             this.button6.TabIndex = 24;
             this.button6.Text = "DELETE";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -172,20 +175,18 @@ namespace LuanTranStore
             this.button4.TabIndex = 4;
             this.button4.Text = "ADD";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // comboBox1
+            // CatCb
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "ADMIN",
-            "SELLER"});
-            this.comboBox1.Location = new System.Drawing.Point(111, 256);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(192, 29);
-            this.comboBox1.TabIndex = 22;
-            this.comboBox1.Text = "Select Category";
+            this.CatCb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CatCb.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.CatCb.FormattingEnabled = true;
+            this.CatCb.Location = new System.Drawing.Point(111, 256);
+            this.CatCb.Name = "CatCb";
+            this.CatCb.Size = new System.Drawing.Size(192, 29);
+            this.CatCb.TabIndex = 22;
+            this.CatCb.Text = "Select Category";
             // 
             // label6
             // 
@@ -198,14 +199,14 @@ namespace LuanTranStore
             this.label6.TabIndex = 21;
             this.label6.Text = "CATEGORY";
             // 
-            // textBox4
+            // ProdPrice
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(111, 207);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(192, 29);
-            this.textBox4.TabIndex = 20;
+            this.ProdPrice.BackColor = System.Drawing.Color.White;
+            this.ProdPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProdPrice.Location = new System.Drawing.Point(111, 207);
+            this.ProdPrice.Name = "ProdPrice";
+            this.ProdPrice.Size = new System.Drawing.Size(192, 29);
+            this.ProdPrice.TabIndex = 20;
             // 
             // label5
             // 
@@ -218,15 +219,14 @@ namespace LuanTranStore
             this.label5.TabIndex = 19;
             this.label5.Text = "PRICE";
             // 
-            // textBox3
+            // ProdQty
             // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(111, 159);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(192, 29);
-            this.textBox3.TabIndex = 18;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.ProdQty.BackColor = System.Drawing.Color.White;
+            this.ProdQty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProdQty.Location = new System.Drawing.Point(111, 159);
+            this.ProdQty.Name = "ProdQty";
+            this.ProdQty.Size = new System.Drawing.Size(192, 29);
+            this.ProdQty.TabIndex = 18;
             // 
             // label4
             // 
@@ -239,14 +239,14 @@ namespace LuanTranStore
             this.label4.TabIndex = 17;
             this.label4.Text = "QUANTITY";
             // 
-            // textBox1
+            // Prodname
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(111, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 29);
-            this.textBox1.TabIndex = 16;
+            this.Prodname.BackColor = System.Drawing.Color.White;
+            this.Prodname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Prodname.Location = new System.Drawing.Point(111, 110);
+            this.Prodname.Name = "Prodname";
+            this.Prodname.Size = new System.Drawing.Size(192, 29);
+            this.Prodname.TabIndex = 16;
             // 
             // label3
             // 
@@ -259,14 +259,14 @@ namespace LuanTranStore
             this.label3.TabIndex = 15;
             this.label3.Text = "NAME";
             // 
-            // textBox2
+            // Prodid
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(111, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 29);
-            this.textBox2.TabIndex = 12;
+            this.Prodid.BackColor = System.Drawing.Color.White;
+            this.Prodid.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Prodid.Location = new System.Drawing.Point(111, 63);
+            this.Prodid.Name = "Prodid";
+            this.Prodid.Size = new System.Drawing.Size(192, 29);
+            this.Prodid.TabIndex = 12;
             // 
             // label2
             // 
@@ -317,6 +317,7 @@ namespace LuanTranStore
             this.button2.Text = "Category";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button3
             // 
@@ -344,6 +345,7 @@ namespace LuanTranStore
             this.Name = "ProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductForm";
+            this.Load += new System.EventHandler(this.ProductForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -360,21 +362,20 @@ namespace LuanTranStore
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ProdQty;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Prodname;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Prodid;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ProdPrice;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox CatCb;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label7;
     }
 }
