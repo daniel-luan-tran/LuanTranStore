@@ -17,10 +17,15 @@ namespace LuanTranStore
         {
             InitializeComponent();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\UserDLT\Documents\smarketdb.mdf;Integrated Security=True;Connect Timeout=30");
+
+        //Ket noi voi co so du lieu
+
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore\Data\smarketdb.mdf;Integrated Security=True;Connect Timeout=30");
+
         private void fillcombo()
         {
-            //This method will bind the Combobox with the Database
+            //Ket noi comboBox vao co so du lieu
+
             Con.Open();
             SqlCommand cmd = new SqlCommand("select CatName from CategoryTbl", Con);
             SqlDataReader rdr;
@@ -47,7 +52,7 @@ namespace LuanTranStore
             this.Hide();
         }
 
-        //Data Grid View
+        //Bang du lieu
         private void populate()
         {
             Con.Open();
@@ -60,7 +65,7 @@ namespace LuanTranStore
             Con.Close();
         }
 
-        //Add Product
+        //Them san pham
         private void button4_Click(object sender, EventArgs e)
         {
             try
@@ -78,7 +83,8 @@ namespace LuanTranStore
                 MessageBox.Show(ex.Message);
             }
         }
-        //Delete Product
+
+        //Xoa san pham
         private void button6_Click(object sender, EventArgs e)
         {
             try
@@ -103,7 +109,8 @@ namespace LuanTranStore
                 MessageBox.Show(ex.Message);
             }
         }
-        //Edit Product
+
+        //Dieu chinh san pham
         private void button5_Click(object sender, EventArgs e)
         {
             try
@@ -128,7 +135,8 @@ namespace LuanTranStore
                 MessageBox.Show(ex.Message);
             }
         }
-        //Select Data
+
+        //Chon du lieu de them bot xoa sua
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.AutoResizeColumns();
