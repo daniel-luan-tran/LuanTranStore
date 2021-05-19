@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuanTranStore", "LuanTranStore.csproj", "{BEBD5FBE-7632-4ABB-A34C-7BAB2D5DC23E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuanTranStore", "LuanTranStore.csproj", "{0CA5C45B-17BB-498D-A3D1-E6FDD24D9EFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BEBD5FBE-7632-4ABB-A34C-7BAB2D5DC23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEBD5FBE-7632-4ABB-A34C-7BAB2D5DC23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEBD5FBE-7632-4ABB-A34C-7BAB2D5DC23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEBD5FBE-7632-4ABB-A34C-7BAB2D5DC23E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA5C45B-17BB-498D-A3D1-E6FDD24D9EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA5C45B-17BB-498D-A3D1-E6FDD24D9EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA5C45B-17BB-498D-A3D1-E6FDD24D9EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA5C45B-17BB-498D-A3D1-E6FDD24D9EFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3D963898-6378-451C-9E8E-28E709B19F20}
+		SolutionGuid = {72311D6D-8769-4530-A39E-6B442847007A}
 	EndGlobalSection
 EndGlobal

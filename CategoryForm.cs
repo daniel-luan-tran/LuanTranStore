@@ -7,31 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace LuanTranStore
 {
     public partial class CategoryForm : Form
     {
+        DataTable dt = new DataTable();
         public CategoryForm()
         {
             InitializeComponent();
         }
-        //Ket noi voi co so du lieu
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore\Data\smarketdb.mdf;Integrated Security=True;Connect Timeout=30");
-        
+
         //Them nhom san pham
-        private void button4_Click(object sender, EventArgs e)
+        public void createnewrow()
+        {      
+            if (dt.Rows.Count <= 0)
+            {
+                DataColumn dc1 = new DataColumn("ID", typeof(int));
+                DataColumn dc2 = new DataColumn("NAME", typeof(string));
+                DataColumn dc3 = new DataColumn("DESCRIPTION", typeof(string));
+                dt.Columns.Add(dc1);
+                dt.Columns.Add(dc2);
+                dt.Columns.Add(dc3);
+                dt.Rows.Add(CatIdTb.Text, CatNameTb.Text, CatDescTb.Text);
+                dataGridView1.DataSource = dt;
+            }
+            else
+            {
+                dt.Rows.Add(CatIdTb.Text, CatNameTb.Text, CatDescTb.Text);
+                dataGridView1.DataSource = dt;
+            }
+        }
+
+        //Them nhom san pham
+        private void button3_Click(object sender, EventArgs e)
         {
             try
             {
-                Con.Open();
-                string query = "insert into CategoryTbl values(" + CatIdTb.Text + " , '" + CatNameTb.Text + "' , '" + CatDescTb.Text + "')";
-                SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.ExecuteNonQuery();
                 MessageBox.Show("Category Added Successfully");
-                Con.Close();
-                populate();
+                createnewrow();
             }
             catch (Exception ex)
             {
@@ -39,37 +53,26 @@ namespace LuanTranStore
             }
         }
 
-        //Ket noi voi co so du lieu
-        private void populate()
-        {
-            Con.Open();
-            string query = "select * from CategoryTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-            Con.Close();
-        }
-
-        private void CategoryForm_Load(object sender, EventArgs e)
-        {
-            populate();
-        }
-
-        //Chon du lieu de them bot xoa sua
+        //Chon nhom san pham de xoa sua
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.AutoResizeColumns();
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            CatIdTb.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            CatNameTb.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            CatDescTb.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            //CatIdTb.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            //CatNameTb.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            //CatDescTb.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
         }
 
         //Xoa nhom san pham
-        private void button6_Click(object sender, EventArgs e)
+        public void deleterow()
+        {
+            CatIdTb.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            dt.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+        }
+
+        //Xoa nhom san pham
+        private void button5_Click(object sender, EventArgs e)
         {
             try
             {
@@ -79,52 +82,14 @@ namespace LuanTranStore
                 }
                 else
                 {
-                    Con.Open();
-                    string query = "delete from CategoryTbl where Catid = " + CatIdTb.Text + "";
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
                     MessageBox.Show("Category Deleted Successfully");
-                    Con.Close();
-                    populate();
+                    deleterow();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        //Dieu chinh nhom san pham
-        private void button5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if(CatIdTb.Text=="" || CatNameTb.Text=="" || CatDescTb.Text=="")
-                {
-                    MessageBox.Show("Missing Information");
-                }
-                else
-                {
-                    Con.Open();
-                    string query = "update CategoryTbl set CatName= '" + CatNameTb.Text + "' , CatDesc = '" + CatDescTb.Text + "' where Catid= " + CatIdTb.Text + "";
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Category Successfully Updated");
-                    Con.Close();
-                    populate();
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ProductForm prod = new ProductForm();
-            prod.Show();
-            this.Hide();
         }
     }
 }
