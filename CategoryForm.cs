@@ -12,83 +12,130 @@ namespace LuanTranStore
 {
     public partial class CategoryForm : Form
     {
-        DataTable dt = new DataTable();
+        public class PersonState
+        {
+            public string ID { get; set; }
+            public string NAME { get; set; }
+            public string DESCRIPTION { get; set; }
+        }
+        public List<PersonState> listOfPersonState;
         public CategoryForm()
         {
             InitializeComponent();
+            listOfPersonState = new List<PersonState>();
+        }
+        //Display Data in DataGridView  
+        private void DisplayData()
+        {
+            DataTable dt = new DataTable();
+            dt = ConvertToDatatable();
+            dataGridView1.DataSource = dt;
+        }
+        //Clear Data  
+        private void ClearData()
+        {
+            CatIdTb.Text = "";
+            CatNameTb.Text = "";
+            CatDescTb.Text = "";
+        }
+        public DataTable ConvertToDatatable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("NAME");
+            dt.Columns.Add("DESCRIPTION");
+            foreach (var item in listOfPersonState)
+            {
+                var row = dt.NewRow();
+                row["ID"] = item.ID;
+                row["NAME"] = item.NAME;
+                row["DESCRIPTION"] = item.DESCRIPTION;
+                dt.Rows.Add(row);
+            }
+            return dt;
+        }
+        private void AddToList(string text1, string text2, string text3)
+        {
+            listOfPersonState.Add(new PersonState { ID = text1, NAME = text2, DESCRIPTION = text3 });
+        }
+        private void UpdateToList(string text1, string text2, string text3)
+        {
+            int index = dataGridView1.SelectedRows[0].Index;
+            listOfPersonState[index] = new PersonState { ID = text1, NAME = text2, DESCRIPTION = text3 };
+        }
+        private void DeleteToList()
+        {
+            int index = dataGridView1.SelectedRows[0].Index;
+            listOfPersonState.RemoveAt(index);
         }
 
-        //Them nhom san pham
-        public void createnewrow()
-        {      
-            if (dt.Rows.Count <= 0)
+        //Them category
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (CatIdTb.Text != "" && CatNameTb.Text != "" && CatDescTb.Text != "")
             {
-                DataColumn dc1 = new DataColumn("ID", typeof(int));
-                DataColumn dc2 = new DataColumn("NAME", typeof(string));
-                DataColumn dc3 = new DataColumn("DESCRIPTION", typeof(string));
-                dt.Columns.Add(dc1);
-                dt.Columns.Add(dc2);
-                dt.Columns.Add(dc3);
-                dt.Rows.Add(CatIdTb.Text, CatNameTb.Text, CatDescTb.Text);
-                dataGridView1.DataSource = dt;
+                AddToList(CatIdTb.Text, CatNameTb.Text, CatDescTb.Text);
+                //MessageBox.Show("Record Inserted Successfully");
+                DisplayData();
+                ClearData();
             }
             else
             {
-                dt.Rows.Add(CatIdTb.Text, CatNameTb.Text, CatDescTb.Text);
-                dataGridView1.DataSource = dt;
+                MessageBox.Show("Please Provide Details!");
             }
         }
 
-        //Them nhom san pham
-        private void button3_Click(object sender, EventArgs e)
+        //Chinh sua category
+        private void button4_Click(object sender, EventArgs e)
         {
-            try
+            if (CatIdTb.Text != "" && CatNameTb.Text != "" && CatDescTb.Text != "")
             {
-                MessageBox.Show("Category Added Successfully");
-                createnewrow();
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                {
+                    UpdateToList(CatIdTb.Text, CatNameTb.Text, CatDescTb.Text);
+                    //MessageBox.Show("Record Updated Successfully");
+                    DisplayData();
+                    ClearData();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please Select Record to Update");
             }
         }
 
-        //Chon nhom san pham de xoa sua
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridView1.AutoResizeColumns();
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            //CatIdTb.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            //CatNameTb.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            //CatDescTb.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-        }
-
-        //Xoa nhom san pham
-        public void deleterow()
-        {
-            CatIdTb.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            dt.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-        }
-
-        //Xoa nhom san pham
+        //Xoa category
         private void button5_Click(object sender, EventArgs e)
         {
-            try
+            if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
             {
-                if (CatIdTb.Text == "")
-                {
-                    MessageBox.Show("Select the category to delete");
-                }
-                else
-                {
-                    MessageBox.Show("Category Deleted Successfully");
-                    deleterow();
-                }
+                DeleteToList();
+                //MessageBox.Show("Record Deleted Successfully!");
+                DisplayData();
+                ClearData();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please Select Record to Delete");
+            }
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            FillInputControls(e.RowIndex);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FillInputControls(e.RowIndex);
+        }
+        private void FillInputControls(int Index)
+        {
+            if (Index > -1)
+            {
+                CatIdTb.Text = dataGridView1.Rows[Index].Cells[0].Value.ToString();
+                CatNameTb.Text = dataGridView1.Rows[Index].Cells[1].Value.ToString();
+                CatDescTb.Text = dataGridView1.Rows[Index].Cells[2].Value.ToString();
             }
         }
     }
