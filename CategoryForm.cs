@@ -17,8 +17,10 @@ namespace LuanTranStore
         {
             InitializeComponent();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\UserDLT\Documents\smarketdb.mdf;Integrated Security=True;Connect Timeout=30");
-        //Add Category
+        //Ket noi voi co so du lieu
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore\Data\smarketdb.mdf;Integrated Security=True;Connect Timeout=30");
+        
+        //Them nhom san pham
         private void button4_Click(object sender, EventArgs e)
         {
             try
@@ -36,7 +38,8 @@ namespace LuanTranStore
                 MessageBox.Show(ex.Message);
             }
         }
-        //Data Grid View
+
+        //Ket noi voi co so du lieu
         private void populate()
         {
             Con.Open();
@@ -48,11 +51,13 @@ namespace LuanTranStore
             dataGridView1.DataSource = ds.Tables[0];
             Con.Close();
         }
+
         private void CategoryForm_Load(object sender, EventArgs e)
         {
             populate();
         }
-        //Data Grid View
+
+        //Chon du lieu de them bot xoa sua
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.AutoResizeColumns();
@@ -62,7 +67,8 @@ namespace LuanTranStore
             CatNameTb.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             CatDescTb.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
         }
-        //Delete Category
+
+        //Xoa nhom san pham
         private void button6_Click(object sender, EventArgs e)
         {
             try
@@ -87,7 +93,8 @@ namespace LuanTranStore
                 MessageBox.Show(ex.Message);
             }
         }
-        //Edit Category
+
+        //Dieu chinh nhom san pham
         private void button5_Click(object sender, EventArgs e)
         {
             try
