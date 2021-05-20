@@ -157,12 +157,25 @@ namespace LuanTranStore
             }
         }
 
-        //Sellect category form
-        private void button6_Click(object sender, EventArgs e)
+        //Tim category
+        private void button1_Click(object sender, EventArgs e)
         {
-            CategoryForm cat = new CategoryForm();
-            cat.Show();
-            this.Hide();
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+
+            bs.Filter = dataGridView1.Columns[1].HeaderText.ToString() + " LIKE '%" + CatSearch.Text + "%'";
+
+            dataGridView1.DataSource = bs;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+
+            bs.Filter = dataGridView1.Columns[2].HeaderText.ToString() + " LIKE '%" + ProdSearch.Text + "%'";
+
+            dataGridView1.DataSource = bs;
         }
     }
 }
