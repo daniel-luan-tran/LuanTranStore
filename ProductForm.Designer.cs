@@ -31,7 +31,6 @@ namespace LuanTranStore
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.Exp = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@ namespace LuanTranStore
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.CatCb = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -55,8 +55,8 @@ namespace LuanTranStore
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.CatCb);
             this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.Exp);
             this.panel1.Controls.Add(this.label6);
@@ -91,23 +91,12 @@ namespace LuanTranStore
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 29);
-            this.comboBox1.TabIndex = 17;
-            this.comboBox1.Text = "Select Category";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(14, 66);
+            this.label7.Location = new System.Drawing.Point(14, 113);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 21);
             this.label7.TabIndex = 15;
@@ -161,6 +150,7 @@ namespace LuanTranStore
             this.dataGridView1.Size = new System.Drawing.Size(582, 351);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // button5
             // 
@@ -220,7 +210,7 @@ namespace LuanTranStore
             // Prodid
             // 
             this.Prodid.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Prodid.Location = new System.Drawing.Point(134, 110);
+            this.Prodid.Location = new System.Drawing.Point(134, 63);
             this.Prodid.Name = "Prodid";
             this.Prodid.Size = new System.Drawing.Size(169, 29);
             this.Prodid.TabIndex = 4;
@@ -252,7 +242,7 @@ namespace LuanTranStore
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(14, 113);
+            this.label2.Location = new System.Drawing.Point(14, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 21);
             this.label2.TabIndex = 1;
@@ -269,6 +259,14 @@ namespace LuanTranStore
             this.label1.Size = new System.Drawing.Size(222, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "MANAGE PRODUCTS";
+            // 
+            // CatCb
+            // 
+            this.CatCb.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.CatCb.Location = new System.Drawing.Point(134, 113);
+            this.CatCb.Name = "CatCb";
+            this.CatCb.Size = new System.Drawing.Size(169, 29);
+            this.CatCb.TabIndex = 19;
             // 
             // ProductForm
             // 
@@ -304,7 +302,7 @@ namespace LuanTranStore
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Mfg;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox CatCb;
     }
 }

@@ -16,7 +16,7 @@ namespace LuanTranStore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CategoryForm());
+            Application.Run(new ProductForm());
         }
     }
 }
