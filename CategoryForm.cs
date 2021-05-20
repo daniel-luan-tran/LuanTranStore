@@ -24,13 +24,15 @@ namespace LuanTranStore
             InitializeComponent();
             listOfPersonState = new List<PersonState>();
         }
-        //Display Data in DataGridView  
+
+        //Hien thi Data trong DataGridView  
         private void DisplayData()
         {
             DataTable dt = new DataTable();
             dt = ConvertToDatatable();
             dataGridView1.DataSource = dt;
         }
+
         //Clear Data  
         private void ClearData()
         {
@@ -137,6 +139,14 @@ namespace LuanTranStore
                 CatNameTb.Text = dataGridView1.Rows[Index].Cells[1].Value.ToString();
                 CatDescTb.Text = dataGridView1.Rows[Index].Cells[2].Value.ToString();
             }
+        }
+
+        //Sellect product form
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ProductForm prod = new ProductForm();
+            prod.Show();
+            this.Hide();
         }
     }
 }
