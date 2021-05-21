@@ -16,13 +16,13 @@ namespace LuanTranStore
         {
             public string ID { get; set; }
             public string CATEGORY { get; set; }
-            public string NAME { get; set; }
-            public string QUANTITY { get; set; }
+            public string PRODUCT { get; set; }
+            public string COMPANY { get; set; }
             public string MFG { get; set; }
             public string EXP { get; set; }
-
         }
         public List<PersonState> listOfPersonState;
+
         public ProductForm()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace LuanTranStore
             Prodid.Text = "";
             CatCb.Text = "";
             Prodname.Text = "";
-            ProdQty.Text = "";
+            Co.Text = "";
             Mfg.Text = "";
             Exp.Text = "";
         }
@@ -52,8 +52,8 @@ namespace LuanTranStore
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("CATEGORY");
-            dt.Columns.Add("NAME");
-            dt.Columns.Add("QUANTITY");
+            dt.Columns.Add("PRODUCT");
+            dt.Columns.Add("COMPANY");
             dt.Columns.Add("MFG");
             dt.Columns.Add("EXP");
             foreach (var item in listOfPersonState)
@@ -61,8 +61,8 @@ namespace LuanTranStore
                 var row = dt.NewRow();
                 row["ID"] = item.ID;
                 row["CATEGORY"] = item.CATEGORY;
-                row["NAME"] = item.NAME;
-                row["QUANTITY"] = item.QUANTITY;
+                row["PRODUCT"] = item.PRODUCT;
+                row["COMPANY"] = item.COMPANY;
                 row["MFG"] = item.MFG;
                 row["EXP"] = item.EXP;
                 dt.Rows.Add(row);
@@ -71,12 +71,12 @@ namespace LuanTranStore
         }
         private void AddToList(string text1, string text6, string text2, string text3, string text4, string text5)
         {
-            listOfPersonState.Add(new PersonState {  ID = text1, CATEGORY = text6, NAME = text2, QUANTITY = text3, MFG = text4, EXP = text5 });
+            listOfPersonState.Add(new PersonState {  ID = text1, CATEGORY = text6, PRODUCT = text2, COMPANY = text3, MFG = text4, EXP = text5 });
         }
         private void UpdateToList( string text1, string text6, string text2, string text3, string text4, string text5)
         {
             int index = dataGridView1.SelectedRows[0].Index;
-            listOfPersonState[index] = new PersonState {  ID = text1, CATEGORY = text6, NAME = text2, QUANTITY = text3, MFG = text4, EXP = text5 };
+            listOfPersonState[index] = new PersonState {  ID = text1, CATEGORY = text6, PRODUCT = text2, COMPANY = text3, MFG = text4, EXP = text5 };
         }
         private void DeleteToList()
         {
@@ -87,27 +87,27 @@ namespace LuanTranStore
         //Them product
         private void button3_Click_1(object sender, EventArgs e)
         {
-            if ( Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && ProdQty.Text != "" && Mfg.Text != "" && Exp.Text != "")
+            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Mfg.Text != "" && Exp.Text != "")
             {
-                AddToList( Prodid.Text, CatCb.Text, Prodname.Text, ProdQty.Text, Mfg.Text, Exp.Text);
+                AddToList( Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Mfg.Text, Exp.Text);
                 //MessageBox.Show("Record Inserted Successfully");
                 DisplayData();
                 ClearData();
             }
             else
             {
-                MessageBox.Show("Please Provide Details!");
+                MessageBox.Show("Please Provide Details or type in 'MM/dd/yyyy' format for MFG and EXP!");
             }
         }
 
         //Chinh sua category
         private void button4_Click_1(object sender, EventArgs e)
         {
-            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && ProdQty.Text != "" && Mfg.Text != "" && Exp.Text != "")
+            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Mfg.Text != "" && Exp.Text != "")
             {
                 if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
                 {
-                    UpdateToList(Prodid.Text, CatCb.Text, Prodname.Text, ProdQty.Text, Mfg.Text, Exp.Text);
+                    UpdateToList(Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Mfg.Text, Exp.Text);
                     //MessageBox.Show("Record Updated Successfully");
                     DisplayData();
                     ClearData();
@@ -115,7 +115,7 @@ namespace LuanTranStore
             }
             else
             {
-                MessageBox.Show("Please Select Record to Update");
+                MessageBox.Show("Please Select Record to Update or type in 'MM/dd/yyyy' format for MFG and EXP!");
             }
         }
 
@@ -151,7 +151,7 @@ namespace LuanTranStore
                 Prodid.Text = dataGridView1.Rows[Index].Cells[0].Value.ToString();
                 CatCb.Text = dataGridView1.Rows[Index].Cells[1].Value.ToString();
                 Prodname.Text = dataGridView1.Rows[Index].Cells[2].Value.ToString();
-                ProdQty.Text = dataGridView1.Rows[Index].Cells[3].Value.ToString();
+                Co.Text = dataGridView1.Rows[Index].Cells[3].Value.ToString();
                 Mfg.Text = dataGridView1.Rows[Index].Cells[4].Value.ToString();
                 Exp.Text = dataGridView1.Rows[Index].Cells[5].Value.ToString();
             }
@@ -168,6 +168,7 @@ namespace LuanTranStore
             dataGridView1.DataSource = bs;
         }
 
+        //Tim product
         private void button2_Click(object sender, EventArgs e)
         {
             BindingSource bs = new BindingSource();
