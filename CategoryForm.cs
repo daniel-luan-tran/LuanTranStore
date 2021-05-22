@@ -19,6 +19,7 @@ namespace LuanTranStore
             public string DESCRIPTION { get; set; }
         }
         public List<PersonState> listOfPersonState;
+
         public CategoryForm()
         {
             InitializeComponent();
@@ -33,6 +34,13 @@ namespace LuanTranStore
             dataGridView1.DataSource = dt;
         }
 
+        //Ket noi voi co Category form
+        private void fillcombo()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("CATEGORY");
+        }
+
         //Clear Data  
         private void ClearData()
         {
@@ -40,6 +48,7 @@ namespace LuanTranStore
             CatNameTb.Text = "";
             CatDescTb.Text = "";
         }
+
         public DataTable ConvertToDatatable()
         {
             DataTable dt = new DataTable();
@@ -147,6 +156,10 @@ namespace LuanTranStore
             ProductForm prod = new ProductForm();
             prod.Show();
             this.Hide();
+        }
+
+        private void CategoryForm_Load(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -30,18 +30,20 @@ namespace LuanTranStore
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.CatCb = new System.Windows.Forms.ComboBox();
+            this.Mfg = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.ProdSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.CatSearch = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.CatCb = new System.Windows.Forms.TextBox();
+            this.Exp = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.Exp = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.Mfg = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
@@ -54,8 +56,6 @@ namespace LuanTranStore
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,9 @@ namespace LuanTranStore
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.CatCb);
+            this.panel1.Controls.Add(this.Mfg);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
@@ -71,12 +74,9 @@ namespace LuanTranStore
             this.panel1.Controls.Add(this.ProdSearch);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.CatSearch);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.CatCb);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.Exp);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.Mfg);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button5);
@@ -93,6 +93,55 @@ namespace LuanTranStore
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(923, 426);
             this.panel1.TabIndex = 4;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button6.Location = new System.Drawing.Point(779, 11);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(135, 47);
+            this.button6.TabIndex = 31;
+            this.button6.Text = "CATEGORY";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // CatCb
+            // 
+            this.CatCb.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.CatCb.FormattingEnabled = true;
+            this.CatCb.Location = new System.Drawing.Point(134, 132);
+            this.CatCb.Name = "CatCb";
+            this.CatCb.Size = new System.Drawing.Size(169, 29);
+            this.CatCb.TabIndex = 30;
+            // 
+            // Mfg
+            // 
+            this.Mfg.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Mfg.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Mfg.Location = new System.Drawing.Point(134, 279);
+            this.Mfg.Name = "Mfg";
+            this.Mfg.Size = new System.Drawing.Size(169, 29);
+            this.Mfg.TabIndex = 29;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 295);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 13);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "MM/DD/YYYY";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(15, 341);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "MM/DD/YYYY";
             // 
             // label9
             // 
@@ -158,20 +207,14 @@ namespace LuanTranStore
             this.CatSearch.Size = new System.Drawing.Size(169, 29);
             this.CatSearch.TabIndex = 21;
             // 
-            // dateTimePicker1
+            // Exp
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 28);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 20;
-            // 
-            // CatCb
-            // 
-            this.CatCb.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.CatCb.Location = new System.Drawing.Point(134, 135);
-            this.CatCb.Name = "CatCb";
-            this.CatCb.Size = new System.Drawing.Size(169, 29);
-            this.CatCb.TabIndex = 19;
+            this.Exp.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Exp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Exp.Location = new System.Drawing.Point(134, 325);
+            this.Exp.Name = "Exp";
+            this.Exp.Size = new System.Drawing.Size(169, 29);
+            this.Exp.TabIndex = 20;
             // 
             // label7
             // 
@@ -184,14 +227,6 @@ namespace LuanTranStore
             this.label7.TabIndex = 15;
             this.label7.Text = "CATEGORY";
             // 
-            // Exp
-            // 
-            this.Exp.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Exp.Location = new System.Drawing.Point(134, 320);
-            this.Exp.Name = "Exp";
-            this.Exp.Size = new System.Drawing.Size(169, 29);
-            this.Exp.TabIndex = 14;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -202,14 +237,6 @@ namespace LuanTranStore
             this.label6.Size = new System.Drawing.Size(83, 21);
             this.label6.TabIndex = 13;
             this.label6.Text = "EXP DATE";
-            // 
-            // Mfg
-            // 
-            this.Mfg.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Mfg.Location = new System.Drawing.Point(134, 274);
-            this.Mfg.Name = "Mfg";
-            this.Mfg.Size = new System.Drawing.Size(169, 29);
-            this.Mfg.TabIndex = 12;
             // 
             // label5
             // 
@@ -342,24 +369,6 @@ namespace LuanTranStore
             this.label1.TabIndex = 0;
             this.label1.Text = "MANAGE PRODUCTS";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 341);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 13);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "MM/DD/YYYY";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 295);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(79, 13);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "MM/DD/YYYY";
-            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +378,7 @@ namespace LuanTranStore
             this.Name = "ProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductForm";
+            this.Load += new System.EventHandler(this.ProductForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -390,12 +400,9 @@ namespace LuanTranStore
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Exp;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox Mfg;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox CatCb;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker Exp;
         private System.Windows.Forms.TextBox CatSearch;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
@@ -404,5 +411,8 @@ namespace LuanTranStore
         private System.Windows.Forms.TextBox ProdSearch;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker Mfg;
+        private System.Windows.Forms.ComboBox CatCb;
+        private System.Windows.Forms.Button button6;
     }
 }

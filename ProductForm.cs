@@ -37,7 +37,7 @@ namespace LuanTranStore
             dataGridView1.DataSource = dt;
         }
 
-        //Clear Data  
+        //Clear Data
         private void ClearData()
         {
             Prodid.Text = "";
@@ -47,6 +47,7 @@ namespace LuanTranStore
             Mfg.Text = "";
             Exp.Text = "";
         }
+
         public DataTable ConvertToDatatable()
         {
             DataTable dt = new DataTable();
@@ -87,9 +88,9 @@ namespace LuanTranStore
         //Them product
         private void button3_Click_1(object sender, EventArgs e)
         {
-            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Mfg.Text != "" && Exp.Text != "")
+            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Exp.Text != "" && Exp.Text != "")
             {
-                AddToList( Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Mfg.Text, Exp.Text);
+                AddToList( Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Exp.Text, Exp.Text);
                 //MessageBox.Show("Record Inserted Successfully");
                 DisplayData();
                 ClearData();
@@ -103,11 +104,11 @@ namespace LuanTranStore
         //Chinh sua category
         private void button4_Click_1(object sender, EventArgs e)
         {
-            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Mfg.Text != "" && Exp.Text != "")
+            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Exp.Text != "" && Exp.Text != "")
             {
                 if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
                 {
-                    UpdateToList(Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Mfg.Text, Exp.Text);
+                    UpdateToList(Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Exp.Text, Exp.Text);
                     //MessageBox.Show("Record Updated Successfully");
                     DisplayData();
                     ClearData();
@@ -152,7 +153,7 @@ namespace LuanTranStore
                 CatCb.Text = dataGridView1.Rows[Index].Cells[1].Value.ToString();
                 Prodname.Text = dataGridView1.Rows[Index].Cells[2].Value.ToString();
                 Co.Text = dataGridView1.Rows[Index].Cells[3].Value.ToString();
-                Mfg.Text = dataGridView1.Rows[Index].Cells[4].Value.ToString();
+                Exp.Text = dataGridView1.Rows[Index].Cells[4].Value.ToString();
                 Exp.Text = dataGridView1.Rows[Index].Cells[5].Value.ToString();
             }
         }
@@ -177,6 +178,26 @@ namespace LuanTranStore
             bs.Filter = dataGridView1.Columns[2].HeaderText.ToString() + " LIKE '%" + ProdSearch.Text + "%'";
 
             dataGridView1.DataSource = bs;
+        }
+
+        //Chuyen sang Category form
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ProductForm prod = new ProductForm();
+            prod.Show();
+            this.Hide();
+        }
+
+        private void ProductForm_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            CategoryForm prod = new CategoryForm();
+            Hide();
+            prod.ShowDialog();
+            Show();
         }
     }
 }
