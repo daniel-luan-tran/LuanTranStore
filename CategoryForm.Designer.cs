@@ -30,7 +30,6 @@ namespace LuanTranStore
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@ namespace LuanTranStore
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.eventLog1 = new System.Diagnostics.EventLog();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
@@ -67,19 +67,6 @@ namespace LuanTranStore
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(923, 426);
             this.panel1.TabIndex = 0;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button6.Location = new System.Drawing.Point(597, 10);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(307, 47);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "SELLECT PRODUCTFORM";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // dataGridView1
             // 
@@ -174,9 +161,9 @@ namespace LuanTranStore
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(14, 113);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 21);
+            this.label3.Size = new System.Drawing.Size(91, 21);
             this.label3.TabIndex = 2;
-            this.label3.Text = "NAME";
+            this.label3.Text = "CATEGORY";
             // 
             // label2
             // 
@@ -204,6 +191,19 @@ namespace LuanTranStore
             // eventLog1
             // 
             this.eventLog1.SynchronizingObject = this;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button6.Location = new System.Drawing.Point(597, 10);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(307, 47);
+            this.button6.TabIndex = 11;
+            this.button6.Text = "SELLECT PRODUCTFORM";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // CategoryForm
             // 

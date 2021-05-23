@@ -46,6 +46,9 @@ namespace LuanTranStore
             Co.Text = "";
             Mfg.Text = "";
             Exp.Text = "";
+            AddCat.Text = "";
+            CatSearch.Text = "";
+            ProdSearch.Text = "";
         }
 
         public DataTable ConvertToDatatable()
@@ -72,7 +75,7 @@ namespace LuanTranStore
         }
         private void AddToList(string text1, string text6, string text2, string text3, string text4, string text5)
         {
-            listOfPersonState.Add(new PersonState {  ID = text1, CATEGORY = text6, PRODUCT = text2, COMPANY = text3, MFG = text4, EXP = text5 });
+            listOfPersonState.Add(new PersonState {  ID = text1, CATEGORY = text6, PRODUCT = text2, COMPANY = text3, MFG = text4, EXP = text5});
         }
         private void UpdateToList( string text1, string text6, string text2, string text3, string text4, string text5)
         {
@@ -88,27 +91,27 @@ namespace LuanTranStore
         //Them product
         private void button3_Click_1(object sender, EventArgs e)
         {
-            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Exp.Text != "" && Exp.Text != "")
+            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Mfg.Text != "" && Exp.Text != "")
             {
-                AddToList( Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Exp.Text, Exp.Text);
+                AddToList( Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Mfg.Text, Exp.Text);
                 //MessageBox.Show("Record Inserted Successfully");
                 DisplayData();
                 ClearData();
             }
             else
             {
-                MessageBox.Show("Please Provide Details or type in 'MM/dd/yyyy' format for MFG and EXP!");
+                MessageBox.Show("Please Provide Details!");
             }
         }
 
         //Chinh sua category
         private void button4_Click_1(object sender, EventArgs e)
         {
-            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Exp.Text != "" && Exp.Text != "")
+            if (Prodid.Text != "" && CatCb.Text != "" && Prodname.Text != "" && Co.Text != "" && Mfg.Text != "" && Exp.Text != "")
             {
                 if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
                 {
-                    UpdateToList(Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Exp.Text, Exp.Text);
+                    UpdateToList(Prodid.Text, CatCb.Text, Prodname.Text, Co.Text, Mfg.Text, Exp.Text);
                     //MessageBox.Show("Record Updated Successfully");
                     DisplayData();
                     ClearData();
@@ -116,7 +119,7 @@ namespace LuanTranStore
             }
             else
             {
-                MessageBox.Show("Please Select Record to Update or type in 'MM/dd/yyyy' format for MFG and EXP!");
+                MessageBox.Show("Please Select Record to Update!");
             }
         }
 
@@ -153,7 +156,7 @@ namespace LuanTranStore
                 CatCb.Text = dataGridView1.Rows[Index].Cells[1].Value.ToString();
                 Prodname.Text = dataGridView1.Rows[Index].Cells[2].Value.ToString();
                 Co.Text = dataGridView1.Rows[Index].Cells[3].Value.ToString();
-                Exp.Text = dataGridView1.Rows[Index].Cells[4].Value.ToString();
+                Mfg.Text = dataGridView1.Rows[Index].Cells[4].Value.ToString();
                 Exp.Text = dataGridView1.Rows[Index].Cells[5].Value.ToString();
             }
         }
@@ -161,43 +164,63 @@ namespace LuanTranStore
         //Tim category
         private void button1_Click(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
+            BindingSource dt = new BindingSource();
+            dt.DataSource = dataGridView1.DataSource;
 
-            bs.Filter = dataGridView1.Columns[1].HeaderText.ToString() + " LIKE '%" + CatSearch.Text + "%'";
+            dt.Filter = dataGridView1.Columns[1].HeaderText.ToString() + " LIKE '%" + CatSearch.Text + "%'";
 
-            dataGridView1.DataSource = bs;
+            dataGridView1.DataSource = dt;
+            ClearData();
         }
 
         //Tim product
         private void button2_Click(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
+            BindingSource dt = new BindingSource();
+            dt.DataSource = dataGridView1.DataSource;
 
-            bs.Filter = dataGridView1.Columns[2].HeaderText.ToString() + " LIKE '%" + ProdSearch.Text + "%'";
+            dt.Filter = dataGridView1.Columns[2].HeaderText.ToString() + " LIKE '%" + ProdSearch.Text + "%'";
 
-            dataGridView1.DataSource = bs;
-        }
-
-        //Chuyen sang Category form
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ProductForm prod = new ProductForm();
-            prod.Show();
-            this.Hide();
+            dataGridView1.DataSource = dt;
+            ClearData();
         }
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-            CategoryForm prod = new CategoryForm();
-            Hide();
-            prod.ShowDialog();
-            Show();
+            string namestr = AddCat.Text;
+            if (AddCat.Text != "")
+            {
+                CatCb.Items.Add(namestr);
+                CatSearch.Items.Add(namestr);
+                ClearData();
+            }
+            else
+            {
+                MessageBox.Show("Please provide category to add!");
+            }
         }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string namestr = CatCb.Text;
+            if (CatCb.Text != "")
+            {
+                CatCb.Items.Remove(namestr);
+                ClearData();
+            }
+            else
+            {
+                MessageBox.Show("Please provide category to remove!");
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DisplayData();
+        }
+
     }
 }

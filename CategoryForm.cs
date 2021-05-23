@@ -15,7 +15,7 @@ namespace LuanTranStore
         public class PersonState
         {
             public string ID { get; set; }
-            public string NAME { get; set; }
+            public string CATEGORY { get; set; }
             public string DESCRIPTION { get; set; }
         }
         public List<PersonState> listOfPersonState;
@@ -34,13 +34,6 @@ namespace LuanTranStore
             dataGridView1.DataSource = dt;
         }
 
-        //Ket noi voi co Category form
-        private void fillcombo()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("CATEGORY");
-        }
-
         //Clear Data  
         private void ClearData()
         {
@@ -53,13 +46,13 @@ namespace LuanTranStore
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
-            dt.Columns.Add("NAME");
+            dt.Columns.Add("CATEGORY");
             dt.Columns.Add("DESCRIPTION");
             foreach (var item in listOfPersonState)
             {
                 var row = dt.NewRow();
                 row["ID"] = item.ID;
-                row["NAME"] = item.NAME;
+                row["CATEGORY"] = item.CATEGORY;
                 row["DESCRIPTION"] = item.DESCRIPTION;
                 dt.Rows.Add(row);
             }
@@ -67,12 +60,12 @@ namespace LuanTranStore
         }
         private void AddToList(string text1, string text2, string text3)
         {
-            listOfPersonState.Add(new PersonState { ID = text1, NAME = text2, DESCRIPTION = text3 });
+            listOfPersonState.Add(new PersonState { ID = text1, CATEGORY = text2, DESCRIPTION = text3 });
         }
         private void UpdateToList(string text1, string text2, string text3)
         {
             int index = dataGridView1.SelectedRows[0].Index;
-            listOfPersonState[index] = new PersonState { ID = text1, NAME = text2, DESCRIPTION = text3 };
+            listOfPersonState[index] = new PersonState { ID = text1, CATEGORY = text2, DESCRIPTION = text3 };
         }
         private void DeleteToList()
         {
@@ -81,11 +74,13 @@ namespace LuanTranStore
         }
 
         //Them category
+        public static string SetValue = "";
         private void button3_Click(object sender, EventArgs e)
         {
             if (CatIdTb.Text != "" && CatNameTb.Text != "" && CatDescTb.Text != "")
             {
                 AddToList(CatIdTb.Text, CatNameTb.Text, CatDescTb.Text);
+                SetValue = CatNameTb.Text;
                 //MessageBox.Show("Record Inserted Successfully");
                 DisplayData();
                 ClearData();
@@ -149,13 +144,14 @@ namespace LuanTranStore
                 CatDescTb.Text = dataGridView1.Rows[Index].Cells[2].Value.ToString();
             }
         }
-
-        //Sellect product form
+        //Chuyen sang product form
         private void button6_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             ProductForm prod = new ProductForm();
-            prod.Show();
-            this.Hide();
+            //this.WindowState = FormWindowState.Minimized;
+            //ProductForm prod = new ProductForm();
+            prod.Visible = true;
         }
 
         private void CategoryForm_Load(object sender, EventArgs e)
