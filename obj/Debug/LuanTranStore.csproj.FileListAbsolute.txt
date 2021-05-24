@@ -20,3 +20,13 @@ C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\New folder\LuanTranStore\obj\D
 C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\New folder\LuanTranStore\obj\Debug\LuanTranStore.csproj.CoreCompileInputs.cache
 C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\New folder\LuanTranStore\obj\Debug\LuanTranStore.exe
 C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\New folder\LuanTranStore\obj\Debug\LuanTranStore.pdb
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\bin\Debug\LuanTranStore.exe.config
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\bin\Debug\LuanTranStore.exe
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\bin\Debug\LuanTranStore.pdb
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\obj\Debug\LuanTranStore.csprojAssemblyReference.cache
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\obj\Debug\LuanTranStore.ProductForm.resources
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\obj\Debug\LuanTranStore.Properties.Resources.resources
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\obj\Debug\LuanTranStore.csproj.GenerateResource.cache
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\obj\Debug\LuanTranStore.csproj.CoreCompileInputs.cache
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\obj\Debug\LuanTranStore.exe
+C:\Users\UserDLT\OneDrive\KHTN\Nhap_Mon_Lap_Trinh\LuanTranStore_noDB\obj\Debug\LuanTranStore.pdb
