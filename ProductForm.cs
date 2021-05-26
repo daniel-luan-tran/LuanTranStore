@@ -61,15 +61,12 @@ namespace LuanTranStore
             Co.Text = "";
             Mfg.Text = "";
             Exp.Text = "";
-            CatIDSearch.Text = "";
-            ProdSearch.Text = "";
             CatId.Text = "";
         }
 
         private void ClearData2()
         {
             AddCat.Text = "";
-            CatSearch2.Text = "";
             CatId.Text = "";
         }
 
@@ -78,20 +75,20 @@ namespace LuanTranStore
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("PRODUCT");
-            dt.Columns.Add("PRODUCT ID");
+            dt.Columns.Add("PRODUCT_ID");
             dt.Columns.Add("COMPANY");
             dt.Columns.Add("MFG");
             dt.Columns.Add("EXP");
-            dt.Columns.Add("CATEGORY ID");
+            dt.Columns.Add("CATEGORY_ID");
             foreach (var item in listOfPersonState)
             {
                 var row = dt.NewRow();
                 row["PRODUCT"] = item.PRODUCT;
-                row["PRODUCT ID"] = item.ID;
+                row["PRODUCT_ID"] = item.ID;
                 row["COMPANY"] = item.COMPANY;
                 row["MFG"] = item.MFG;
                 row["EXP"] = item.EXP;
-                row["CATEGORY ID"] = item.CATCB;
+                row["CATEGORY_ID"] = item.CATCB;
                 dt.Rows.Add(row);
             }
             return dt;
@@ -101,12 +98,12 @@ namespace LuanTranStore
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("CATEGORY");
-            dt.Columns.Add("CATEGORY ID");
+            dt.Columns.Add("CATEGORY_ID");
             foreach (var item in listOfPersonState2)
             {
                 var row = dt.NewRow();
                 row["CATEGORY"] = item.CATEGORY2;
-                row["CATEGORY ID"] = item.CATID;
+                row["CATEGORY_ID"] = item.CATID;
                 dt.Rows.Add(row);
             }
             return dt;
@@ -162,11 +159,7 @@ namespace LuanTranStore
                 MessageBox.Show("Please select row which has data!");
             }
         }
-        //private void UpdateToList2(string text6, string text7)
-        //{
-        //    int index = dataGridView2.SelectedRows[0].Index;
-        //    listOfPersonState2[index] = new PersonState2 { CATID = text6, CATEGORY2 = text7 };
-        //}
+
         private void DeleteToList2()
         {
             try
@@ -240,39 +233,6 @@ namespace LuanTranStore
                     //MessageBox.Show("Record Updated Successfully");
                     DisplayData();
                     ClearData();
-
-                    //bool entryFound = false;
-                    //foreach (DataGridViewRow row in dataGridView1.Rows)
-                    //{
-                    //    object value1 = row.Cells[0].Value;
-                    //    object value2 = row.Cells[1].Value;
-                    //    if (value1 != null &&
-                    //        value2 != null &&
-                    //        value1.ToString() == Prodname.Text &&
-                    //        value2.ToString() == Prodid.Text)
-                    //    {
-                    //        MessageBox.Show("Product and Product ID are already existed");
-                    //        entryFound = true;
-                    //        break;
-                    //    }
-                    //    if (value1 != null &&
-                    //        value1.ToString() == Prodname.Text)
-                    //    {
-                    //        MessageBox.Show("Product already existed");
-                    //        entryFound = true;
-                    //        break;
-                    //    }
-                    //    if (value2 != null &&
-                    //        value2.ToString() == Prodid.Text)
-                    //    {
-                    //        MessageBox.Show("Product ID already existed");
-                    //        entryFound = true;
-                    //        break;
-                    //    }
-                    //}
-                    //if (!entryFound)
-                    //{
-                    //}
                 }
                 else
                 {
@@ -331,29 +291,6 @@ namespace LuanTranStore
             FillInputControls(e.RowIndex);
         }
 
-        //Tim category ID
-        private void button1_Click(object sender, EventArgs e)
-        {
-            BindingSource dt = new BindingSource();
-            dt.DataSource = dataGridView1.DataSource;
-
-            dt.Filter = dataGridView1.Columns[5].HeaderText.ToString() + " LIKE '%" + CatIDSearch.Text + "%'";
-
-            dataGridView1.DataSource = dt;
-            ClearData();
-        }
-
-        //Tim product
-        private void button2_Click(object sender, EventArgs e)
-        {
-            BindingSource dt = new BindingSource();
-            dt.DataSource = dataGridView1.DataSource;
-
-            dt.Filter = dataGridView1.Columns[0].HeaderText.ToString() + " LIKE '%" + ProdSearch.Text + "%'";
-
-            dataGridView1.DataSource = dt;
-            ClearData();
-        }
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
@@ -416,28 +353,6 @@ namespace LuanTranStore
             }
         }
 
-        //Chinh sua Category 2
-        //private void button10_Click(object sender, EventArgs e)
-        //{
-        //    string namestr = CatCb.Text;
-
-        //    if (dataGridView2.SelectedRows != null && dataGridView2.SelectedRows.Count > 0)
-        //    {
-        //        UpdateToList2(CatId.Text, AddCat.Text);
-
-        //        CatCb.Items.Remove(namestr);
-        //        CatSearch.Items.Remove(namestr);
-
-
-        //        DisplayData2();
-        //        ClearData();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Please provide detail to add!");
-        //    }
-        //}
-
         //Xoa Category 2
         private void button8_Click(object sender, EventArgs e)
         {
@@ -498,21 +413,149 @@ namespace LuanTranStore
             FillInputControls2(e2.RowIndex);
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-            BindingSource dt = new BindingSource();
-            dt.DataSource = dataGridView2.DataSource;
-
-            dt.Filter = dataGridView2.Columns[0].HeaderText.ToString() + " LIKE '%" + CatSearch2.Text + "%'";
-
-            dataGridView2.DataSource = dt;
-            ClearData2();
-        }
-
         private void button13_Click(object sender, EventArgs e)
         {
             ClearData2();
             DisplayData2();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindingSource dt = new BindingSource();
+                dt.DataSource = dataGridView1.DataSource;
+                dt.Filter = dataGridView1.Columns[0].HeaderText.ToString() + " LIKE '%" + Prodname.Text + "%'";
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            ClearData();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindingSource dt = new BindingSource();
+                dt.DataSource = dataGridView1.DataSource;
+                dt.Filter = dataGridView1.Columns[1].HeaderText.ToString() + " LIKE '%" + Prodid.Text + "%'";
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            ClearData();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindingSource dt = new BindingSource();
+                dt.DataSource = dataGridView1.DataSource;
+                dt.Filter = dataGridView1.Columns[22].HeaderText.ToString() + " LIKE '%" + Co.Text + "%'";
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            ClearData();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindingSource dt = new BindingSource();
+                dt.DataSource = dataGridView1.DataSource;
+                dt.Filter = dataGridView1.Columns[3].HeaderText.ToString() + " LIKE '%" + Mfg.Text + "%'";
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            ClearData();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindingSource dt = new BindingSource();
+                dt.DataSource = dataGridView1.DataSource;
+                dt.Filter = dataGridView1.Columns[4].HeaderText.ToString() + " LIKE '%" + Exp.Text + "%'";
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            ClearData();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindingSource dt = new BindingSource();
+                dt.DataSource = dataGridView1.DataSource;
+                dt.Filter = dataGridView1.Columns[5].HeaderText.ToString() + " LIKE '%" + CatCb.Text + "%'";
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            ClearData();
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindingSource dt = new BindingSource();
+                dt.DataSource = dataGridView2.DataSource;
+
+                dt.Filter = dataGridView2.Columns[0].HeaderText.ToString() + " LIKE '%" + AddCat.Text + "%'";
+
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            ClearData2();
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindingSource dt = new BindingSource();
+                dt.DataSource = dataGridView2.DataSource;
+
+                dt.Filter = dataGridView2.Columns[0].HeaderText.ToString() + " LIKE '%" + CatId.Text + "%'";
+
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+            ClearData2();
         }
     }
 }
