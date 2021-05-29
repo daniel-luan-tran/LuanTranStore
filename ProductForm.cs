@@ -459,7 +459,7 @@ namespace LuanTranStore
             {
                 BindingSource dt = new BindingSource();
                 dt.DataSource = dataGridView1.DataSource;
-                dt.Filter = dataGridView1.Columns[22].HeaderText.ToString() + " LIKE '%" + Co.Text + "%'";
+                dt.Filter = dataGridView1.Columns[2].HeaderText.ToString() + " LIKE '%" + Co.Text + "%'";
                 dataGridView1.DataSource = dt;
             }
             catch (Exception exc)
