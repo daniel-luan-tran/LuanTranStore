@@ -12,7 +12,7 @@ namespace LuanTranStore
 {
     public partial class ProductForm : Form
     {
-        public class PersonState
+        public class ProductPanel
         {
             public string PRODUCT { get; set; }
             public string ID { get; set; }
@@ -21,20 +21,20 @@ namespace LuanTranStore
             public string EXP { get; set; }
             public string CATCB { get; set; }
         }
-        public List<PersonState> listOfPersonState;
+        public List<ProductPanel> listOfProduct;
 
-        public class PersonState2
+        public class CategoryPanel
         {
             public string CATEGORY2 { get; set; }
             public string CATID { get; set; }
         }
-        public List<PersonState2> listOfPersonState2;
+        public List<CategoryPanel> listOfCategory;
 
         public ProductForm()
         {
             InitializeComponent();
-            listOfPersonState = new List<PersonState>();
-            listOfPersonState2 = new List<PersonState2>();
+            listOfProduct = new List<ProductPanel>();
+            listOfCategory = new List<CategoryPanel>();
         }
 
         //Hien thi Data trong DataGridView  
@@ -80,7 +80,7 @@ namespace LuanTranStore
             dt.Columns.Add("MFG");
             dt.Columns.Add("EXP");
             dt.Columns.Add("CATEGORY_ID");
-            foreach (var item in listOfPersonState)
+            foreach (var item in listOfProduct)
             {
                 var row = dt.NewRow();
                 row["PRODUCT"] = item.PRODUCT;
@@ -99,7 +99,7 @@ namespace LuanTranStore
             DataTable dt = new DataTable();
             dt.Columns.Add("CATEGORY");
             dt.Columns.Add("CATEGORY_ID");
-            foreach (var item in listOfPersonState2)
+            foreach (var item in listOfCategory)
             {
                 var row = dt.NewRow();
                 row["CATEGORY"] = item.CATEGORY2;
@@ -115,7 +115,7 @@ namespace LuanTranStore
         {
             try
             {
-                listOfPersonState.Add(new PersonState { ID = text1, PRODUCT = text2, COMPANY = text3, MFG = text4, EXP = text5, CATCB = text6 });
+                listOfProduct.Add(new ProductPanel { ID = text1, PRODUCT = text2, COMPANY = text3, MFG = text4, EXP = text5, CATCB = text6 });
             }
             catch
             {
@@ -127,7 +127,7 @@ namespace LuanTranStore
             try
             {
                 int index = dataGridView1.SelectedRows[0].Index;
-                listOfPersonState[index] = new PersonState { ID = text1, PRODUCT = text2, COMPANY = text3, MFG = text4, EXP = text5, CATCB = text6 };
+                listOfProduct[index] = new ProductPanel { ID = text1, PRODUCT = text2, COMPANY = text3, MFG = text4, EXP = text5, CATCB = text6 };
             }
             catch
             {
@@ -139,7 +139,7 @@ namespace LuanTranStore
             try
             {
                 int index = dataGridView1.SelectedRows[0].Index;
-                listOfPersonState.RemoveAt(index);
+                listOfProduct.RemoveAt(index);
             }
             catch
             {
@@ -152,7 +152,7 @@ namespace LuanTranStore
         {
             try
             {
-                listOfPersonState2.Add(new PersonState2 { CATID = text6, CATEGORY2 = text7 });
+                listOfCategory.Add(new CategoryPanel { CATID = text6, CATEGORY2 = text7 });
             }
             catch
             {
@@ -165,7 +165,7 @@ namespace LuanTranStore
             try
             {
                 int index = dataGridView2.SelectedRows[0].Index;
-                listOfPersonState2.RemoveAt(index);
+                listOfCategory.RemoveAt(index);
             }
             catch
             {
